@@ -1,0 +1,37 @@
+2025-01-27 11:08:40,035 - WARNING - Invalid login attempt for user: ravi
+2025-01-27 11:08:51,673 - INFO - User  registered: ravi
+2025-01-27 11:09:06,938 - INFO - User  registered: rv
+2025-01-27 11:09:13,254 - INFO - User  rv logged in successfully.
+2025-01-27 11:12:53,896 - WARNING - Invalid login attempt for user: rv
+2025-01-27 11:12:58,459 - INFO - User  registered: rv
+2025-01-27 11:13:00,781 - INFO - User  rv logged in successfully.
+2025-01-27 11:13:04,127 - WARNING - Invalid login attempt for user: rv
+2025-01-27 11:13:23,414 - WARNING - Invalid login attempt for user: BatMan
+2025-01-27 11:13:27,022 - INFO - User  registered: BatMan
+2025-01-27 11:13:30,067 - INFO - User  BatMan logged in successfully.
+2025-01-27 11:14:21,605 - WARNING - Invalid login attempt for user: BatMan
+2025-01-27 11:14:24,751 - INFO - User  registered: BatMan
+2025-01-27 11:14:27,943 - INFO - User  BatMan logged in successfully.
+2025-01-27 11:14:43,238 - WARNING - Invalid login attempt for user: ravi
+2025-01-27 11:14:45,396 - INFO - User  registered: ravi
+2025-01-27 11:14:47,508 - INFO - User  ravi logged in successfully.
+2025-01-27 11:15:00,649 - WARNING - Invalid login attempt for user: ravi
+2025-01-27 11:19:32,650 - DEBUG - Loading KWallet
+2025-01-27 11:19:32,650 - DEBUG - Loading SecretService
+2025-01-27 11:19:32,650 - DEBUG - Loading Windows
+2025-01-27 11:19:32,697 - DEBUG - Loaded cffi backend
+2025-01-27 11:19:32,884 - DEBUG - Loading chainer
+2025-01-27 11:19:32,884 - DEBUG - Loading libsecret
+2025-01-27 11:19:32,884 - DEBUG - Loading macOS
+2025-01-27 11:19:32,900 - WARNING - Invalid login attempt for user: hello
+2025-01-27 11:19:35,374 - INFO - User  registered: hello
+2025-01-27 11:19:37,388 - INFO - User  logged in successfully: hello
+2025-01-27 11:19:51,538 - DEBUG - Loading KWallet
+2025-01-27 11:19:51,538 - DEBUG - Loading SecretService
+2025-01-27 11:19:51,538 - DEBUG - Loading Windows
+2025-01-27 11:19:51,538 - DEBUG - Loaded cffi backend
+2025-01-27 11:19:51,600 - DEBUG - Loading chainer
+2025-01-27 11:19:51,600 - DEBUG - Loading libsecret
+2025-01-27 11:19:51,600 - DEBUG - Loading macOS
+2025-01-27 11:19:51,616 - INFO - User  logged in successfully: hello
+2025-01-27 11:19:53,652 - WARNING - User  registration failed: hello already exists.
