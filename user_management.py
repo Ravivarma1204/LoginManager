@@ -1,34 +1,31 @@
+import hashlib
 import logging
-import keyring
+import sqlite3
 
-# Set up logging
-logging.basicConfig(
-    filename='app.log',
-    level=logging.DEBUG,
-    format='%(asctime)s - %(levelname)s - %(message)s'
-)
+def hash_password(password):
+    """Hash a password using SHA-256."""
+    return hashlib.sha256(password.encode()).hexdigest()
 
-def store_credentials(username, password):
-    """Store the username and password securely."""
-    keyring.set_password("my_application", username, password)
-    logging.info(f'User  registered: {username}')
-
-def verify_credentials(username, password):
-    """Verify the provided credentials."""
-    stored_password = keyring.get_password("my_application", username)
-    if stored_password is None:
-        logging.warning(f'Invalid login attempt for user: {username}')
-        return False
-    if stored_password == password:
-        logging.info(f'User  logged in successfully: {username}')
+def register_user(database, username, password):
+    """Register a new user with a hashed password."""
+    hashed_password = hash_password(password)
+    try:
+        database.cursor.execute("INSERT INTO users (username, password) VALUES (?, ?)", (username, hashed_password))
+        database.connection.commit()
+        logging.info(f"User  registered: {username}")
         return True
-    logging.warning(f'Invalid login attempt for user: {username}')
-    return False
-
-def register_user(username, password):
-    """Register a new user."""
-    if keyring.get_password("my_application", username) is not None:
-        logging.warning(f'User  registration failed: {username} already exists.')
+    except sqlite3.IntegrityError:
+        # This error occurs if the username already exists
+        logging.warning(f"Registration failed for user: {username} (username may already exist)")
         return False
-    store_credentials(username, password)
-    return True
+
+def verify_user(database, username, password):
+    """Verify the provided username and password."""
+    hashed_password = hash_password(password)
+    database.cursor.execute("SELECT * FROM users WHERE username=? AND password=?", (username, hashed_password))
+    if database.cursor.fetchone() is not None:
+        logging.info(f"User  logged in: {username}")
+        return True
+    else:
+        logging.warning(f"Failed login attempt for user: {username}")
+        return False
